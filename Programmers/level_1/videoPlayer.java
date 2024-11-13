@@ -1,3 +1,4 @@
+// [PCCP 기출문제] 1번 / 동영상 재생기
 // https://school.programmers.co.kr/learn/courses/30/lessons/340213
 
 class Solution {
