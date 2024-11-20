@@ -18,10 +18,10 @@ class Solution {
     }
     
     
-    // 약수의 개수를 찾는 메소드 (제곱근까지만 계산)
+    // 약수의 개수를 찾는 메소드 
     public static int findDivisors(int number) {        
         int count = 0;
-        // 1부터 number까지 반복하며 약수를 구함
+        // 1부터 number까지 반복하며 약수를 구함 (제곱근까지만 계산)
         for (int i = 1; i * i <= number; i++) {
             if (number % i == 0) {  // 나누어떨어지면 약수
                 count++;
