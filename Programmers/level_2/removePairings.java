@@ -33,7 +33,7 @@ class Solution
 
         
 //         // 정상적으로 작동하나, 효율성 측면에서 보완 필요
-//         // StringBuilder로 같은 알파벳 짝 제거
+//         // StringBuilder로 같은 알파벳 짝 제거 
 //         StringBuilder sb = new StringBuilder(s);        
         
 //         for (int i=0; i < sb.length()-1; i++) {
