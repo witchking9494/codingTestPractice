@@ -33,3 +33,25 @@ SELECT SUM(PRICE) AS TOTAL_PRICE FROM ITEM_INFO WHERE RARITY = 'LEGEND'
 -- 잡은 물고기 중 가장 큰 물고기의 길이 구하기 / MySQL
 -- https://school.programmers.co.kr/learn/courses/30/lessons/298515
 SELECT CONCAT(MAX(LENGTH), 'cm') AS MAX_LENGTH FROM FISH_INFO
+
+
+
+-- 연도별 대장균 크기의 편차 구하기 / MySQL
+-- https://school.programmers.co.kr/learn/courses/30/lessons/299310
+SELECT  YEAR(DIFFERENTIATION_DATE) AS YEAR, 
+        MAX(SIZE_OF_COLONY) OVER (PARTITION BY YEAR(DIFFERENTIATION_DATE)) - SIZE_OF_COLONY AS YEAR_DEV,
+        ID
+FROM ECOLI_DATA
+ORDER BY YEAR, YEAR_DEV
+
+
+
+-- 물고기 종류 별 대어 찾기 / MySQL
+-- https://school.programmers.co.kr/learn/courses/30/lessons/293261
+SELECT A.ID, B.FISH_NAME, A.LENGTH AS LENGTH
+        FROM FISH_INFO A
+        JOIN FISH_NAME_INFO B ON A.FISH_TYPE = B.FISH_TYPE
+    WHERE A.LENGTH = 
+        (SELECT MAX(C.LENGTH) FROM FISH_INFO C
+         WHERE C.FISH_TYPE = A.FISH_TYPE)
+    ORDER BY A.ID
